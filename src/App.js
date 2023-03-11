@@ -6,7 +6,7 @@ const App = () => {
     <>
       <Navbar title="Textutils"/>
       <div className="container my-3">
-      <Main heading="Enter the text for enalize"/>
+      <Main heading="Enter the text for enalyze"/>
       </div>
     </>
   );
