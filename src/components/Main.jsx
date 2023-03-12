@@ -38,13 +38,15 @@ function Main(props) {
     copytext.style.fontFamily = output;
     preview.style.fontFamily = output;
   };
-
-  const textcolour = (e) => {
-    setcolour(e.target.value);
+  const handlecolor = () => {
     let copytext = document.getElementById("exampleFormControlTextarea1");
     let preview = document.getElementById("preview");
     copytext.style.color = colour;
     preview.style.color = colour;
+  }
+  const textcolour = (e) => {
+    setcolour(e.target.value);
+   
   };
 
   return (
@@ -82,6 +84,7 @@ function Main(props) {
           onChange={handleoption}
           title="fontfamily"
         >
+           <option selected disabled>Choose font</option>
           <option value="Arial">Arial</option>
           <option value="Helvetica">Helvetica</option>
           <option value="Verdana">Verdana</option>
@@ -96,6 +99,9 @@ function Main(props) {
           <option value="Pacifico">Pacifico</option>
           <option value="Fredoka One">Fredoka One</option>
         </select>
+        <button className="btn btn-primary m-2 " onClick={handlecolor}>
+          Setcolor
+        </button>
         <span className="m-2" title="textcolor">
           <input
             type="color"
