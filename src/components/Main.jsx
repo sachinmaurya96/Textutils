@@ -42,7 +42,9 @@ function Main(props) {
   const textcolour = (e) => {
     setcolour(e.target.value);
     let copytext = document.getElementById("exampleFormControlTextarea1");
+    let preview = document.getElementById("preview");
     copytext.style.color = colour;
+    preview.style.color = colour;
   };
 
   return (
@@ -106,13 +108,13 @@ function Main(props) {
       <div className="container">
         <h2>Your text summery</h2>
         <p>
-          <b>{text.split(" ").length - 1}</b> words <b>{text.length} </b>
+          <b>{text.split(" ").length}</b> words <b>{text.length} </b>
           charectors
         </p>
         <p>
           {" "}
           average time to read these words{" "}
-          <b>{(text.split(" ").length - 1) * 0.008}</b>
+          <b>{(text.split(" ").length) * 0.008}</b>
         </p>
         <h2>Preview</h2>
         <p id="preview">{text}</p>
