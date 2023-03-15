@@ -1,10 +1,23 @@
-import React from 'react'
-import PropTypes from 'prop-types';
+import React, {useState} from "react";
+import PropTypes from "prop-types";
 
 function Navbar(props) {
+  
+  const checkhandle = (e) => {
+    
+    if(e.target.checked == true){
+      document.body.style.background ="black"
+      document.body.style.color ="#fff"
+      document.getElementById("mode").innerText ="Enable light mode"
+    }else{
+      document.body.style.background ="#fff"
+      document.body.style.color ="black"
+      document.getElementById("mode").innerText ="Enable dark mode"
+    }
+  }
   return (
     <>
-       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container-fluid">
           <a className="navbar-brand" href="/">
             {props.title}
@@ -34,26 +47,33 @@ function Navbar(props) {
               </li>
             </ul>
             <form className="d-flex">
-              <input
-                className="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <button className="btn btn-primary" type="submit">
-                Search
-              </button>
+              <div className="form-check form-switch">
+                <input
+                  className="form-check-input "
+                  type="checkbox"
+                  id="flexSwitchCheckDefault"
+                  onChange={checkhandle}
+                  
+                />
+                <label
+                  className="form-check-label text-light"
+                  htmlFor="flexSwitchCheckDefault"
+                  id="mode"
+                >
+                
+                </label>
+              </div>
             </form>
           </div>
         </div>
       </nav>
     </>
-  )
+  );
 }
 Navbar.propTypes = {
-    title: PropTypes.string,
-  };
-export default Navbar
+  title: PropTypes.string,
+};
+export default Navbar;
 Navbar.defaultProps = {
-    title: 'set title here'
-  };
+  title: "set title here",
+};
